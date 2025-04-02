@@ -1,0 +1,25 @@
+def main():
+    try:
+        points = int(input("Введіть кількість набраних очок (0-100): "))
+        if points < 0 or points > 100:
+            raise ValueError("Некоректне введення! Кількість очок повинна бути в межах від 0 до 100.")
+        if points < 50:
+            rating = "Початківець"
+            multiplier = 1
+        elif points < 70:
+            rating = "Срібний гравець"
+            multiplier = 1.5
+        elif points < 90:
+            rating = "Золотий гравець"
+            multiplier = 2
+        else:
+            rating = "Платиновий гравець"
+            multiplier = 3
+        final_points = int(points * multiplier)
+        print(f"Ваш рейтинг: {rating}! Ви отримали {final_points} балів (множник ×{multiplier})!")
+    except ValueError as e:
+        print(e)
+    finally:
+        print("Дякуємо за гру! Приходьте ще!")
+if __name__ == "__main__":
+    main()
